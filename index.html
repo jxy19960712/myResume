@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/jquery.fullPage.css">
+    <link rel="stylesheet" href="animate.css">
+    <style>
+        body {
+            overflow: hidden;
+        }
+
+        /*-----------------------------第一屏开始---------------------------*/
+        @font-face {
+            font-family: TotalEclipse;
+            src: url('font/TotalEclipse.ttf');
+        }
+        @font-face {
+            font-family: Cuadrada;
+            src: url('font/Cuadrada St.ttf');
+        }
+        .first {
+            overflow: hidden;
+        }
+
+        .cover {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            animation: BGchange 0.5s infinite linear alternate;
+        }
+
+        .pic1 {
+            width: 500px;
+            height: 501px;
+            background: url("images/11.gif") no-repeat;
+            background-size: 500px;
+            float: left;
+            margin-left: 0px;
+            transform: translateX(-200px) translateY(-300px) scale(0.1);
+        }
+
+        .first.flag .pic1 {
+            transition: transform 2s linear;
+            transform: translateX(0px) scale(1) translateY(0px)
+        }
+
+        .pic2 {
+            width: 500px;
+            height: 501px;
+            float: right;
+            background: url("images/12.gif") no-repeat;
+            background-size: 500px;
+            margin-left: auto;
+            margin-right: 0px;
+            transform: translateX(200px) translateY(-300px) scale(0.1);
+        }
+
+        .first.flag .pic2 {
+            transition: transform 2s linear;
+            transform: translateX(0px) scale(1) translateY(0px)
+        }
+
+        .pic3 {
+            width: 200px;
+            height: 200px;
+            float: left;
+            background: url("images/st1.gif") no-repeat;
+            background-size: cover;
+            position: absolute;
+            bottom: 0;
+            left: 60%;
+            transform: translateY(100%);
+        }
+
+        .pic4 {
+            width: 200px;
+            height: 200px;
+            float: right;
+            background: url("images/st2.gif") no-repeat;
+            background-size: cover;
+            position: absolute;
+            bottom: 0;
+            right: 60%;
+            transform: translateY(100%);
+        }
+
+        .first.flag .pic3, .first.flag .pic4 {
+            transform: translateY(0%);
+            transition: transform 2s;
+        }
+
+        .pic5 {
+            width: 271px;
+            height: 281px;
+            background: url("images/yz.jpg") repeat 0 -10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50px;
+        }
+
+        .pic6 {
+            position: absolute;
+            left: 60%;
+            top: 26%;
+            width: 130px;
+            height: 130px;
+            background: url("images/cq.gif");
+            background-size: 130px 130px;
+            transform: rotate(-20deg);
+        }
+
+        .pic7 {
+            position: absolute;
+            right: -7.5%;
+            top: 0%;
+            width: 300px;
+            height: 300px;
+            background: url("images/30634020_xxl.png");
+            background-size: 300px 300px;
+            z-index: -1;
+            transform: translateX(100%);
+        }
+
+        .first.flag .pic7 {
+            transition: transform 0.5s;
+            transform: translateX(0);
+        }
+
+        .pic8 {
+            position: absolute;
+            left: -7.5%;
+            top: 0%;
+            width: 300px;
+            height: 300px;
+            background: url("images/30634020_xxr.png");
+            background-size: 300px 300px;
+            z-index: -1;
+            transform: translateX(-100%);
+        }
+
+        .first.flag .pic8 {
+            transition: transform 0.5s;
+            transform: translateX(0);
+        }
+
+        .resume-txt {
+            position: absolute;
+            left: 50%;
+            top: 17%;
+            animation: txt-go 2s infinite alternate;
+            font: 80px/20px 微软雅黑;
+            color: rgba(0, 0, 0, .7);
+            font-family: TotalEclipse;
+        }
+
+        @keyframes BGchange {
+            0% {
+                background-color: rgba(255, 0, 64, 0.3);
+            }
+            50% {
+                background-color: rgba(30, 22, 255, 0.3);
+            }
+            100% {
+                background-color: rgba(255, 253, 24, 0.3);
+            }
+        }
+
+        @keyframes move3 {
+            0% {
+                transform: translateY(100%);
+            }
+            100% {
+                transform: translateY(0%);
+            }
+        }
+
+        @keyframes txt-go {
+            0% {
+                transform: translateY(0)
+            }
+            25% {
+                transform: translateY(-30px) translateX(-30px)
+            }
+            50% {
+                transform: translateY(-40px) translateX(-40px)
+            }
+            75% {
+                transform: translateY(-30px) translateX(-30px)
+            }
+            100% {
+                transform: translateY(-50px) translateX(-50px)
+            }
+        }
+
+        @keyframes roundline {
+            0% {
+                transform: translateX(-50%) rotate(0deg);
+            }
+            100% {
+                transform: translateX(-50%) rotate(360deg);
+            }
+        }
+
+        .round-line {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            transform-origin: center;
+            animation: roundline 5s infinite linear;
+            z-index: -1;
+        }
+
+        .round-line li {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 10px;
+            height: 100%;
+            background-color: gold;
+            list-style: none;
+            transform-origin: center;
+            padding-top: 1000px;
+        }
+
+        .first.flag .round-line li {
+            transition: padding-top 0.5s;
+            padding-top: 0px;
+        }
+
+        /*-----------------------------第一屏结束---------------------------*/
+        /*-----------------------------第二屏开始---------------------------*/
+        .second{
+            background-image: url(images/containerdark.jpg);
+            background-size: 100%;
+            overflow: hidden;
+        }
+        #txt1 {
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            font-size: 90px;
+            font-family: Cuadrada;
+            color: #fff;
+            text-shadow: 0 0px 10px rgba(0,0,0,.9);
+        }
+        #txt2{
+            position: absolute;
+            top: 40%;
+            left: 45%;
+            transform: translateX(-50%);
+            opacity: 0;
+            font-size: 90px;
+            font-family: Cuadrada;
+            color: #fff;
+            text-shadow: 0 0px 10px rgba(0,0,0,.9);
+        }
+
+        .bounceIn {
+            animation-duration: 0.7s!important;
+            animation-delay: 0s!important; /*动画延迟时间*/
+        }
+        .DJ{
+            position: absolute;
+            bottom:170px;
+            opacity: 0;
+            z-index:1;
+        }
+        .table{
+            position: absolute;
+            z-index:2;
+            left:-160px;
+            bottom: -70px;
+            opacity:0;
+        }
+        .star2,.star3,.star4,.star5,.star6{
+            position: absolute;
+            top: 0;
+            right: 0px;
+            width: 200px;
+            transform: rotate(-30deg);
+            animation: starmove 2s infinite ;
+            opacity: 0.5;
+        }
+        .star3{
+            right: 10%;
+            animation: starmove2 2s 0.5s infinite ;
+        }
+        .star4{
+            right: -20%;
+            animation: starmove3 2s 1s infinite ;
+        }
+        @keyframes starmove {
+            0%{
+                top: -200px;
+            }
+            100%{
+                top: 100%;
+                right:100%;
+            }
+        }
+        @keyframes starmove2 {
+            0%{
+                top: -200px;
+            }
+            100%{
+                top: 100%;
+                right:110%;
+            }
+        }
+        @keyframes starmove3 {
+            0%{
+                top: -200px;
+            }
+            100%{
+                top: 100%;
+                right:80%;
+            }
+        }
+        .paper,.paper1,.paper2{
+            display: none;
+            border-radius: 50%;
+            top: 67%;
+            left:310px;
+            width: 100px;
+            height: 100px;
+            background-color: transparent;
+            position: absolute;
+            transform-style: preserve-3d;
+            transform:scale3d(0.8,0.8,0.8) translate3d(0px,0px,0px) rotateX(-250deg);
+            z-index: 2;
+            text-align: center;
+        }
+        .paper img,.paper1 img,.paper2 img{
+            width: 100%;
+            position: relative;
+        }
+        .parperchange{
+            transition: all 0.5s ;
+            transform: translate3d(0,-400px,100px)scale3d(1.8,1.8,1.8) rotateX(0deg);
+            left:80%;
+        }
+        .parper1change{
+            transition: all 0.5s 0.5s;
+            transform: translate3d(0,-200px,100px)scale3d(1.8,1.8,1.8) rotateX(0deg);
+            left:80%;
+        }
+        .parper2change{
+            transition: all 0.5s 1s;
+            transform: translate3d(0,0px,100px)scale3d(1.8,1.8,1.8) rotateX(0deg);
+            left:80%;
+        }
+        /*---------rotate-*/
+        .imgbox{
+            margin: 0 auto;
+            position: relative;
+            width: 500px;
+            height: 500px;
+        }
+        #img2{
+            width: 500px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .img2box{
+            width: 400px;
+            height: 400px;
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+<div id="dowebok">
+    <div class="section first active">
+        <div class="pic1"></div>
+        <div class="pic2"></div>
+        <div class="pic3"></div>
+        <div class="pic4"></div>
+        <div class="pic5"></div>
+        <ul class="round-line">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="pic6"></div>
+        <div class="pic7"></div>
+        <div class="pic8"></div>
+        <p class="resume-txt">My Resume</p>
+        <div class="cover"></div>
+    </div>
+    <div class="section second">
+        <div class="imgbox">
+            <img id="img2" src="images/round.png" alt="">
+            <div class="img2box">
+                <img width="400px" id="img1" src="images/int2.png" alt="">
+            </div>
+        </div>
+        <div id="txt1">I</div>
+        <div id="txt2">AM</div>
+        <img class="DJ" id="DJ" width="300" src="images/玩你妈个大DJ改.png" alt="">
+        <img class="table" id="table" src="images/5701b9642fbc4_1024.png" alt="">
+        <img class="star2" src="images/liuxing2.png" alt="">
+        <img class="star3" src="images/liuxing2.png" alt="">
+        <img class="star4" src="images/liuxing2.png" alt="">
+        <img class="star5" src="images/liuxing2.png" alt="">
+        <img class="star6" src="images/liuxing2.png" alt="">
+        <div class="paper"><img src="images/cdimg.png" alt=""></div>
+        <div class="paper1"><img src="images/cdimg.png" alt=""></div>
+        <div class="paper2"><img src="images/cdimg.png" alt=""></div>
+    </div>
+    <div class="section">
+
+    </div>
+    <div class="section">
+
+    </div>
+</div>
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/jquery.fullPage.js"></script>
+<script src="testjs/jquery.animations.min.js"></script>
+<script src="testjs/jquery.animations-tile.min.js"></script>
+<script>
+    $(function () {
+        var index = 1;
+        $(window).on('load', function () {
+            $('.section').removeClass('flag')
+            setTimeout(function () {
+                $('.section').eq(index - 1).addClass('flag')
+            }, 100)
+        })
+        $('#dowebok').fullpage({
+            scrollingSpeed: 500,
+            afterLoad: function (a, i) {
+                $('.section').removeClass('flag')
+                index = i;
+                setTimeout(function () {
+                    $('.section').eq(index - 1).addClass('flag')
+                    console.log(1);
+                }, 100)
+
+                if(i==2){
+                    $('#txt1').addClass('animated bounceIn')
+                    $("#img2").css({'transition':'all 2.5s','transform':'rotate(-180deg)'})
+                    $("#img1").css({'transition':'all 2.5s','transform':'rotate(360deg)'})
+                    $('#txt1').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
+                        function () {
+                            $('#txt2').addClass('animated bounceIn')
+                            $('#txt2').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
+                                function () {
+                                $('#table').addClass('animated slideInLeft').css('opacity',1)
+                                $('#table').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
+                                function () {
+                                    $('.paper').show(100)
+                                    $('.paper1').show(100)
+                                    $('.paper2').show(100)
+                                    $('#DJ').addClass('animated bounceInUp').css('opacity',1)
+                                    $('#DJ').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
+                                    function () {
+                                        $('.paper').addClass('parperchange')
+                                        $('.paper1').addClass('parper1change')
+                                        $('.paper2').addClass('parper2change')
+                                    })
+                                })
+                            }
+                            )
+                        }
+                    );
+                }else{
+                    $('.second div').removeClass('animated bounceIn');
+                    $('#table').removeClass('animated slideInLeft').css('opacity',0)
+                    $('#DJ').removeClass('animated bounceInUp').css('opacity',0)
+                    $('.paper').css('display','none')
+                    $('.paper1').css('display','none')
+                    $('.paper2').css('display','none')
+                    $('.paper').removeClass('parperchange')
+                    $('.paper1').removeClass('parper1change')
+                    $('.paper2').removeClass('parper2change')
+                    $("#img2").css({'transform':'rotate(0deg)'})
+                    $("#img1").css({'transform':'rotate(0deg)'})
+                }
+            }
+        })
+        $('.round-line li').each(function (i, v) {
+            $('.round-line li').eq(i).css({'transform': 'translate(-50%,-50%) rotate(' + i * 10 + 'deg)'})
+        })
+
+
+    });
+
+//    animated bounceInLeft
+//    slideInLeft
+</script>
+</body>
+</html>

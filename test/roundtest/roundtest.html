@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            overflow: hidden;
+        }
+
+    </style>
+</head>
+<body>
+
+
+
+
+
+
+
+
+<input type="button">
+
+<script src="jqueryrotate/js/jquery-1.11.0.min.js"></script>
+<script src="jqueryrotate/js/jQueryRotate3.js"></script>
+<script type="text/javascript">
+    $(function () {
+        var value = 0
+        $("#img1").rotate({
+            bind:
+                {
+                    click: function(){
+                        value +=180;
+                        $(this).rotate({ animateTo:value})
+                    }
+                }
+        });
+        $("#img2").rotate({
+            bind:
+                {
+                    click:         function img2round(){
+                        value +=180;
+                        $(this).rotate({ animateTo:value})
+                    }
+                }
+        });
+
+
+
+        $('input').on('click',function () {
+            console.log(1);
+
+        })
+
+
+    })
+
+</script>
+</body>
+</html>
